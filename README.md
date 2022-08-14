@@ -1,6 +1,6 @@
 # HealthCare
 ```
-Heshan Siriwardhana
+Heshan Siriwardana
 Suran Sandeepa 
 Odara Amarakoon
 Buddhima Weerasinghe
