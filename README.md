@@ -1,4 +1,4 @@
-# HealthCare
+# myFitness
 ```
 Heshan Siriwardana
 Sandeepa U.W.P.S - IT20614676
