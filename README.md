@@ -1,4 +1,11 @@
-# Home-Gym
+# Home-Gym - Data Saving App
+
+## Technologies
+>* Java
+>* SQLite
+>* Android
+
+## Group Details
 ```
 Heshan Siriwardana - IT20617332
 Sandeepa U.W.P.S - IT20614676
