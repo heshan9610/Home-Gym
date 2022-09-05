@@ -1,6 +1,6 @@
-![gym6](https://user-images.githubusercontent.com/74088854/188491890-4dc82ec2-e789-49dd-b7ec-e656d241458b.jpeg)
+<h1 align="center"> Home Gym </h1>
 
-# Home-Gym - Data Saving App
+![gym6](https://user-images.githubusercontent.com/74088854/188491890-4dc82ec2-e789-49dd-b7ec-e656d241458b.jpeg)
 
 ## Technologies
 >* Java
