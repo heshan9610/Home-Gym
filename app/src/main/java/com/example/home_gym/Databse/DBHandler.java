@@ -55,9 +55,12 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
         //Heshan's Drop Table Query
+
         //Suran's Drop Table Query
         String DROP_DIET_QUERY = " DROP TABLE IF EXISTS " + DIET_TABLE_NAME;
+
         //Odara's Drop Table Query
+
         //Ravishani's Drop Table Query
 
         sqLiteDatabase.execSQL(DROP_DIET_QUERY);
@@ -67,8 +70,12 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     //Suran's Function CRUD
+
+    //---------------------------------------------------------------------------------
     //HEshan's Function CRUD
+
     //Odara's Function CRUD
+
     //Ravishani's Function CRUD
 
 
