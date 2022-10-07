@@ -8,7 +8,7 @@ import com.example.home_gym.Models.DietModel;
 
 import java.util.ArrayList;
 
-public class DietAdapter extends RecyclerView.Adapter<DietAdapter.DietVH> {
+public class DietAdapter {
 
     ArrayList<DietModel> diets;
     Context context;

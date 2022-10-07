@@ -45,6 +45,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //Suran's Execute Query
         sqLiteDatabase.execSQL(TABLE_CREATE_DIET);
+
         //Odara's Execute Query
 
         //Ravishani's Execute Query

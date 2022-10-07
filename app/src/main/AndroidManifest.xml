@@ -17,9 +17,6 @@
             android:name=".UpdateDiet"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".DietHome"
             android:exported="false" />
         <activity
@@ -29,10 +26,10 @@
             android:name=".AddDiet"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".HomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
