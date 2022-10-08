@@ -50,7 +50,14 @@ public class AddDiet extends AppCompatActivity implements AdapterView.OnItemSele
         String dietBody = edDietBody.getText().toString().toString();
 
         DBHandler DbHandler = new DBHandler(AddDiet.this);
-        DbHandler.AddDiet(dietTime, dietDate, dietBody);
+        long result = DbHandler.AddDiet(dietTime, dietDate, dietBody);
+        
+        if(result > 0){
+            Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void ViewDietPlans(View view) {

@@ -1,5 +1,6 @@
 package com.example.home_gym.Databse;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -16,6 +17,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DIET_ID = "Diet_Id";
     private static final String DIET_NAME = "Diet_Name";
     private static final String DIET_TIME = "Diet_Time";
+    private static final String DIET_DATE = "Diet_DATE";
     private static final String DIET_DESCRIPTION = "Diet_Description";
 
     public DBHandler(Context context) {
@@ -32,6 +34,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + DIET_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DIET_NAME + " TEXT, "
                 + DIET_TIME + " TEXT, "
+                + DIET_DATE + " TEXT, "
                 + DIET_DESCRIPTION + " TEXT" +
                 ");";
 
@@ -70,10 +73,24 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    //Suran's Function CRUD
 
-    //---------------------------------------------------------------------------------
-    //HEshan's Function CRUD
+    //Suran's Function CRUD-------------------------------------------------------------------------
+
+    //Data Insert
+    public long AddDiet(String dietTime, String dietDate, String dietBody) {
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues contentValue = new ContentValues();
+        contentValue.put(DIET_TIME,dietTime);
+        contentValue.put(DIET_TIME,dietTime);
+        contentValue.put(DIET_TIME,dietBody);
+
+        return db.insert("HomeGym_Diet",null, contentValue);
+    }
+
+
+    //Heshan's Function CRUD
 
     //Odara's Function CRUD
 
