@@ -2,6 +2,7 @@ package com.example.home_gym.Databse;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -83,14 +84,16 @@ public class DBHandler extends SQLiteOpenHelper {
     //Data Insert
     public long AddDiet(DietModel DM) {
 
-        SQLiteDatabase db = getWritableDatabase();
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
+        //store all data and pass it to database table
         ContentValues contentValue = new ContentValues();
         contentValue.put(DIET_TIME,DM.getdTime());
         contentValue.put(DIET_DATE,DM.getdDate());
         contentValue.put(DIET_DESCRIPTION,DM.getdDescription());
 
-        return db.insert("HomeGym_Diet",null, contentValue);
+        //insert data inside database table
+        return sqLiteDatabase.insert(DIET_TABLE_NAME,null, contentValue);
     }
 
     //Display Diet List
@@ -100,7 +103,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getReadableDatabase();
 
-        db.rawQuery("SELECT * from HomeGym_Diet", null);
+        //select * data from Diet Table
+        String GET_DATA_QUERY = " SELECT * FROM " + DIET_TABLE_NAME;
+
+
+        Cursor cursor; //Cursor OBJ
+
+        cursor = db.rawQuery(GET_DATA_QUERY, null); //cursor obtain all data from db
 
         return DietPlans;
     }
