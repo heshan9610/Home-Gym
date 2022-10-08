@@ -86,8 +86,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
-        //store all data and pass it to database table
         ContentValues contentValue = new ContentValues();
+
+        //store all data and pass it to database table
         contentValue.put(DIET_TIME,DM.getdTime());
         contentValue.put(DIET_DATE,DM.getdDate());
         contentValue.put(DIET_DESCRIPTION,DM.getdDescription());
@@ -101,15 +102,29 @@ public class DBHandler extends SQLiteOpenHelper {
 
         ArrayList<DietModel>DietPlans = new ArrayList<>();
 
-        SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         //select * data from Diet Table
         String GET_DATA_QUERY = " SELECT * FROM " + DIET_TABLE_NAME;
 
+        Cursor cursor = null; //Cursor OBJ
 
-        Cursor cursor; //Cursor OBJ
+        //cursor obtain all data from db
+        cursor = sqLiteDatabase.rawQuery(GET_DATA_QUERY, null);
 
-        cursor = db.rawQuery(GET_DATA_QUERY, null); //cursor obtain all data from db
+        if(cursor.moveToNext()){ //first row
+            do{
+                //row data
+                int id = cursor.getInt(0);
+                String dTime = cursor.getString(1);
+                String dDate = cursor.getString(2);
+                String dBody = cursor.getString(4);
+
+                DietModel DM = new DietModel(id, dTime, dDate, dBody);
+                DietPlans.add(DM);
+
+            }while(cursor.moveToNext()); // next row
+        }
 
         return DietPlans;
     }
