@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.home_gym.Databse.DBHandler;
+import com.example.home_gym.Models.DietModel;
 
 public class AddDiet extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -50,7 +51,10 @@ public class AddDiet extends AppCompatActivity implements AdapterView.OnItemSele
         String dietBody = edDietBody.getText().toString().toString();
 
         DBHandler DbHandler = new DBHandler(AddDiet.this);
-        long result = DbHandler.AddDiet(dietTime, dietDate, dietBody);
+
+        DietModel DM = new DietModel(dietTime, dietDate, dietBody);
+
+        long result = DbHandler.AddDiet(DM);
         
         if(result > 0){
             Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show();

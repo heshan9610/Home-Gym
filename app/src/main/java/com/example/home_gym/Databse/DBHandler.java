@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.home_gym.Models.DietModel;
+
+import java.util.ArrayList;
+
 public class DBHandler extends SQLiteOpenHelper {
 
     private static int VERSION = 1;
@@ -77,18 +81,29 @@ public class DBHandler extends SQLiteOpenHelper {
     //Suran's Function CRUD-------------------------------------------------------------------------
 
     //Data Insert
-    public long AddDiet(String dietTime, String dietDate, String dietBody) {
+    public long AddDiet(DietModel DM) {
 
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues contentValue = new ContentValues();
-        contentValue.put(DIET_TIME,dietTime);
-        contentValue.put(DIET_TIME,dietTime);
-        contentValue.put(DIET_TIME,dietBody);
+        contentValue.put(DIET_TIME,DM.getdTime());
+        contentValue.put(DIET_DATE,DM.getdDate());
+        contentValue.put(DIET_DESCRIPTION,DM.getdDescription());
 
         return db.insert("HomeGym_Diet",null, contentValue);
     }
 
+    //Display Diet List
+    public ArrayList<DietModel>getAllDietPlans(){
+
+        ArrayList<DietModel>DietPlans = new ArrayList<>();
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        db.rawQuery("SELECT * from HomeGym_Diet", null);
+
+        return DietPlans;
+    }
 
     //Heshan's Function CRUD
 

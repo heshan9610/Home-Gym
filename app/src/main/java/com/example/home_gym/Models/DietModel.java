@@ -5,22 +5,23 @@ import java.io.Serializable;
 public class DietModel implements Serializable {
 
     private int id;
-    private String dName;
     private String dTime;
+    private String dDate;
     private String dDescription;
 
-    public DietModel(int id, String dName, String dTime, String dDescription) {
+    public DietModel(int id, String dTime, String dDate, String dDescription) {
         this.id = id;
-        this.dName = dName;
         this.dTime = dTime;
+        this.dDate = dDate;
         this.dDescription = dDescription;
     }
 
-    public DietModel(String dName, String dTime, String dDescription) {
-        this.dName = dName;
+    public DietModel(String dTime, String dDate, String dDescription) {
         this.dTime = dTime;
+        this.dDate = dDate;
         this.dDescription = dDescription;
     }
+
 
     public int getId() {
         return id;
@@ -30,20 +31,20 @@ public class DietModel implements Serializable {
         this.id = id;
     }
 
-    public String getdName() {
-        return dName;
-    }
-
-    public void setdName(String dName) {
-        this.dName = dName;
-    }
-
     public String getdTime() {
         return dTime;
     }
 
     public void setdTime(String dTime) {
         this.dTime = dTime;
+    }
+
+    public String getdDate() {
+        return dDate;
+    }
+
+    public void setdDate(String dDate) {
+        this.dDate = dDate;
     }
 
     public String getdDescription() {
