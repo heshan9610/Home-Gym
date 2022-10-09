@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
-    android:elevation="8dp">
+    android:elevation="8dp"
+    android:layout_marginBottom="8dp">
 
 
     <LinearLayout
@@ -16,7 +17,9 @@
         <!--Meal for the day-->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="#7A7777">
 
             <TextView
                 android:id="@+id/tvMeal"
