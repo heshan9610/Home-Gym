@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="16dp"
     android:elevation="8dp"
+    android:background="#615E5E"
+    app:cardElevation="12dp"
     android:layout_marginBottom="8dp">
 
 
@@ -19,7 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#7A7777">
+            app:cardBackgroundColor="#ccc"
+            app:cardCornerRadius="16dp"
+            android:elevation="16dp">
 
             <TextView
                 android:id="@+id/tvMeal"

@@ -1,10 +1,12 @@
 package com.example.home_gym.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.home_gym.Models.DietModel;
 import com.example.home_gym.R;
+import com.example.home_gym.UpdateDiet;
 
 import java.util.ArrayList;
 
@@ -39,11 +42,28 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.DietVH>{
     @Override
     public void onBindViewHolder(@NonNull DietVH holder, int position) {
 
-        DietModel dietModel = diets.get(position);
+        final DietModel dietModel = diets.get(position);
 
         holder.tvTime.setText(dietModel.getdTime());
         holder.tvDate.setText(dietModel.getdDate());
         holder.tvBody.setText(dietModel.getdDescription());
+
+        holder.cardUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent updateIntent = new Intent(context, UpdateDiet.class);
+                updateIntent.putExtra("DIETS", dietModel);
+                context.startActivity(updateIntent);
+            }
+        });
+
+        holder.cardDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(context, dietModel.getdTime() + "Will Be Deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
