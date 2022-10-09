@@ -12,6 +12,12 @@
     <string name="DietShow">Diet Plans</string>
     <string name="UpdateDiet">Update</string>
     <string name="total_diet_plans">Total Diet Plans</string>
+    <string name="rawTime">Time :</string>
+    <string name="meal_for_the_day">Meal for the day</string>
+    <string name="rawDate">Date :</string>
+    <string name="rawMeals">Meals :</string>
+    <string name="btnupdate">update</string>
+    <string name="btndelete">Delete</string>
     <!--Diet Spinner-->
     <string-array name="dietNames">
         <item>Breakfast</item>

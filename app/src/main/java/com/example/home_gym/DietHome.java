@@ -27,5 +27,13 @@ public class DietHome extends AppCompatActivity {
             }
         });
 
+        btnDietPlans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent dietPlans = new Intent(DietHome.this, DietList.class);
+                startActivity(dietPlans);
+            }
+        });
+
     }
 }

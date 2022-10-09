@@ -1,11 +1,14 @@
 package com.example.home_gym;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.home_gym.Adapters.DietAdapter;
 import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.Models.DietModel;
 
@@ -17,6 +20,7 @@ public class DietList extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView TotalDiets;
     DBHandler dbHandler;
+    DietAdapter dietAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +33,15 @@ public class DietList extends AppCompatActivity {
         dbHandler = new DBHandler(this);
 
         DietPlans = dbHandler.getAllDietPlans();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        DietPlans = dbHandler.getAllDietPlans();
-
         //get total timetable size
         TotalDiets.setText("Total Diet Plans : " + DietPlans.size());
+
+        dietAdapter = new DietAdapter(DietPlans, this);
+        recyclerView.setAdapter(dietAdapter);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(llm);
     }
+
 }

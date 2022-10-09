@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:elevation="8dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!--Meal for the day-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvMeal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:text="@string/meal_for_the_day"/>
+        </androidx.cardview.widget.CardView>
+
+        <!--Time Display-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rawTime"/>
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rawTime"/>
+        </LinearLayout>
+
+        <!--Date Display-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rawDate"/>
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rawDate"/>
+        </LinearLayout>
+
+        <!--Body Display-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rawMeals"/>
+            <TextView
+                android:id="@+id/tvBody"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rawMeals"/>
+        </LinearLayout>
+
+        <!--Update & Delete Buttons-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <!--Btn Update-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardUpdate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#0F0"
+                app:cardCornerRadius="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#FFF"
+                    android:text="@string/btnupdate"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="10dp"/>
+
+            <!--Btn Delete-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#A60035"
+                app:cardCornerRadius="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#FFF"
+                    android:text="@string/btndelete"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
