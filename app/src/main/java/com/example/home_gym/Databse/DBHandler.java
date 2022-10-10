@@ -46,7 +46,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //Heshan's Execute Query
         sqLiteDatabase.execSQL(TABLE_CREATE_LOWERBODY);
-        
+
         //Suran's Execute Query
 
         //Odara's Execute Query
