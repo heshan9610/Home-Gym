@@ -11,6 +11,15 @@ public class DBHandler extends SQLiteOpenHelper {
     private static int VERSION = 1;
     private static String DATABASE_NAME = "HomeGym.db";
 
+    //Diet Table (Heshan Siriwardana)
+    private static final String LOWERBODY_TABLE_NAME = "HomeGym_LowerBody";
+    private static final String LOWERBODY_ID = "LowerBody_Id";
+    private static final String LOWERBODY_DAY = "LowerBody_Day";
+    private static final String LOWERBODY_PROCEDURE = "LowerBody_Procedure";
+    private static final String LOWERBODY_TIMINGDURATION = "LowerBody_TimingDuration";
+    private static final String LOWERBODY_BENEFITS = "LowerBody_Benefits";
+
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
