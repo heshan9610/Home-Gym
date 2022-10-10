@@ -1,4 +1,13 @@
-# Home-Gym
+<h1 align="center"> Home Gym </h1>
+
+![gym6](https://user-images.githubusercontent.com/74088854/188491890-4dc82ec2-e789-49dd-b7ec-e656d241458b.jpeg)
+
+## Technologies
+>* Java
+>* SQLite
+>* Android
+
+## Group Details
 ```
 Heshan Siriwardana - IT20617332
 Sandeepa U.W.P.S - IT20614676
