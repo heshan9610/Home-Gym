@@ -11,7 +11,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static int VERSION = 1;
     private static String DATABASE_NAME = "HomeGym.db";
 
-    //Diet Table (Heshan Siriwardana)
+    //Lower body Table (Heshan Siriwardana)
     private static final String LOWERBODY_TABLE_NAME = "HomeGym_LowerBody";
     private static final String LOWERBODY_ID = "LowerBody_Id";
     private static final String LOWERBODY_DAY = "LowerBody_Day";
@@ -27,6 +27,14 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //Heshan's Function Table Create Query
+        String TABLE_CREATE_LOWERBODY = "CREATE TABLE " + LOWERBODY_TABLE_NAME + " " +
+                " ("
+                + LOWERBODY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + LOWERBODY_DAY + " TEXT, "
+                + LOWERBODY_PROCEDURE + " TEXT, "
+                + LOWERBODY_TIMINGDURATION + " TEXT, "
+                + LOWERBODY_BENEFITS + " TEXT" +
+                ");";
 
         //Suran's Function Table Create Query
 
@@ -37,7 +45,8 @@ public class DBHandler extends SQLiteOpenHelper {
         //--------------------------------------------
 
         //Heshan's Execute Query
-
+        sqLiteDatabase.execSQL(TABLE_CREATE_LOWERBODY);
+        
         //Suran's Execute Query
 
         //Odara's Execute Query
