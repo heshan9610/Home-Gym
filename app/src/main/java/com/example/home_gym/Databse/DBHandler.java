@@ -59,9 +59,17 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
         //Heshan's Drop Table Query
+        String DROP_LOWERBODY_QUERY = " DROP TABLE IF EXISTS " + LOWERBODY_TABLE_NAME;
+
         //Suran's Drop Table Query
         //Odara's Drop Table Query
         //Ravishani's Drop Table Query
+
+        //drop the lowerbody table
+        sqLiteDatabase.execSQL(DROP_LOWERBODY_QUERY);
+
+        //create table again
+        onCreate(sqLiteDatabase);
     }
 
     //Suran's Function CRUD
