@@ -27,59 +27,73 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Update Train"
+                android:text="Add Lower body Workout"
                 android:layout_marginStart="5dp"
                 android:textSize="20sp" />
 
         </LinearLayout>
 
 
-        <!--Train Name-->
+        <!--Workout day-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Train Name"
+            android:hint="Workout day"
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTrainNameAT"
+                android:id="@+id/esds"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--No Of Passengers-->
+        <!--Procedure-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Status"
+            android:hint="Workout procedure"
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextNoOfPassengersAT"
+                android:id="@+id/effs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Train Category-->
+        <!--Timing and duration-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Train Category"
+            android:hint="Timing and Duration"
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTrainCategoryAT"
+                android:id="@+id/eff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--Benefits-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Benefits"
+            android:padding="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/efffgf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!--Save btn-->
         <Button
