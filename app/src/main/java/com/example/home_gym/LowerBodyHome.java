@@ -14,10 +14,12 @@ public class LowerBodyHome extends AppCompatActivity {
         setContentView(R.layout.activity_lower_body_home);
     }
 
+    //add new lower body workouts
     public void displayAddLowerBodyWorkoutPage(View view) {
         startActivity(new Intent(LowerBodyHome.this, AddLowerBodyWorkout.class));
     }
 
+    //view available lower body workouts
     public void displayViewLowerBodyWorkoutPage(View view) {
         startActivity(new Intent(LowerBodyHome.this, ViewLowerBodyWorkout.class));
     }

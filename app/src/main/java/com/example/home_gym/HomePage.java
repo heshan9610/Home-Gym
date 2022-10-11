@@ -14,6 +14,8 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
     }
 
+
+    //add lower body home page
     public void displayLowerBodyHomePage(View view) {
         startActivity(new Intent(HomePage.this, LowerBodyHome.class));
     }
