@@ -18,7 +18,7 @@ public class UpdateDiet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_diet);
 
-        DietModel dietModel = (DietModel) getIntent().getExtras().getSerializable("DIET");
+        DietModel dietModel = (DietModel) getIntent().getExtras().getSerializable("DIETS");
 
         id = dietModel.getId();
 
