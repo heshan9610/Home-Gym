@@ -43,7 +43,7 @@ public class AddLowerBodyWorkout extends AppCompatActivity {
         long result = dbHandler.InsertLowerBodyWorkout(lowerBodyModel);
 
         if(result > 0){
-            Toast.makeText(this, "Train Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lower Body workout Saved", Toast.LENGTH_SHORT).show();
             //dataSavedToast.show();
         }else {
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
