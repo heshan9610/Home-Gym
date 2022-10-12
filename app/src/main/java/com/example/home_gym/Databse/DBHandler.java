@@ -134,6 +134,16 @@ public class DBHandler extends SQLiteOpenHelper {
         return lowerBodyDetails;
     }
 
+    //Delete Lower Body workout
+    public int deleteLowerBodyWorkout(int id) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        int result = sqLiteDatabase.delete(LOWERBODY_TABLE_NAME, "LOWERBODY_ID=?",new String[]{String.valueOf(id)});
+
+        return result;
+    }
+
 
     //Odara's Function CRUD
     //Ravishani's Function CRUD

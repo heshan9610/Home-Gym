@@ -1,15 +1,19 @@
 package com.example.home_gym.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.Models.LowerBodyModel;
 import com.example.home_gym.R;
 
@@ -38,13 +42,55 @@ public class LowerBodyAdapter extends RecyclerView.Adapter<LowerBodyAdapter.Lowe
     @Override
     public void onBindViewHolder(@NonNull LowerBodyVH holder, int position) {
 
-        LowerBodyModel lowerBodyModel = lowerBodyDetails.get(position);
+        final LowerBodyModel lowerBodyModel = lowerBodyDetails.get(position);
         holder.workoutDayLowerBody.setText(lowerBodyModel.getWorkoutDay());
         holder.procedureLowerBody.setText(lowerBodyModel.getProcedure());
         holder.durationLowerBody.setText(lowerBodyModel.getDuration());
         holder.benefitsLowerBody.setText(lowerBodyModel.getBenefits());
 
+        holder.CardUpdateRowDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, lowerBodyModel.getWorkoutDay() + " Workout will be updated", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        holder.CardDeleteRowDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setTitle("Confirmation!");
+                builder.setMessage("Are you sure to delete " + lowerBodyModel.getWorkoutDay() + " Workout  ?");
+                builder.setIcon(android.R.drawable.ic_menu_delete);
+                builder.setCancelable(false);
+
+                //Yes
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        DBHandler dbHandler = new DBHandler(context);
+
+                        int result = dbHandler.deleteLowerBodyWorkout(lowerBodyModel.getId());
+
+                        if(result > 0){
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            lowerBodyDetails.remove(lowerBodyModel);
+                            notifyDataSetChanged();
+                        }else {
+                            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                //No
+                builder.setNegativeButton("No", null);
+                builder.show();
+            }
+        });
     }
 
     @Override
