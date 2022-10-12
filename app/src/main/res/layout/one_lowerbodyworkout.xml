@@ -103,7 +103,7 @@
 
             //Update btn
             <androidx.cardview.widget.CardView
-                android:id="@+id/CardUpdateRowDisplayTT"
+                android:id="@+id/CardUpdateRowDisplay"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -126,7 +126,7 @@
 
             //Delete btn
             <androidx.cardview.widget.CardView
-                android:id="@+id/CardDeleteRowDisplayTT"
+                android:id="@+id/CardDeleteRowDisplay"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
