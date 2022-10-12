@@ -2,12 +2,15 @@ package com.example.home_gym.Databse;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
 import com.example.home_gym.Models.LowerBodyModel;
+
+import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -96,6 +99,40 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return result;
     }
+
+    //Display Lower Body workouts
+    public ArrayList<LowerBodyModel> getAllLowerBodyDetails(){
+
+        ArrayList<LowerBodyModel> LowerBodyDetails = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        String GET_DATA_QUERY = " SELECT * FROM " + LOWERBODY_TABLE_NAME;
+
+        Cursor cursor = null;
+
+        cursor = sqLiteDatabase.rawQuery(GET_DATA_QUERY, null);
+
+        if( cursor.moveToFirst()){
+
+            do{
+                //row data
+                int id = cursor.getInt(0);
+                String workoutDay = cursor.getString(1);
+                String workoutProcedure = cursor.getString(2);
+                String workoutDuration= cursor.getString(3);
+                String workoutBenefits= cursor.getString(4);
+
+                LowerBodyModel lowerBodyModel= new LowerBodyModel(id, workoutDay, workoutProcedure,workoutDuration, workoutBenefits);
+                LowerBodyDetails.add(lowerBodyModel);
+
+            }while(cursor.moveToNext());
+
+        }
+
+        return LowerBodyDetails;
+    }
+
     //Odara's Function CRUD
     //Ravishani's Function CRUD
 
