@@ -14,10 +14,10 @@
         android:theme="@style/Theme.HomeGym"
         tools:targetApi="31">
         <activity
-            android:name=".LowerBodyHome"
+            android:name=".DisplayLowerBodyWorkouts"
             android:exported="false" />
         <activity
-            android:name=".ViewLowerBodyWorkout"
+            android:name=".LowerBodyHome"
             android:exported="false" />
         <activity
             android:name=".UpdateLowerBodyWorkout"

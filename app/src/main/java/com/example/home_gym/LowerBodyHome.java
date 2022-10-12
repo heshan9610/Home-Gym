@@ -21,7 +21,7 @@ public class LowerBodyHome extends AppCompatActivity {
 
     //view available lower body workouts
     public void displayViewLowerBodyWorkoutPage(View view) {
-        startActivity(new Intent(LowerBodyHome.this, ViewLowerBodyWorkout.class));
+        startActivity(new Intent(LowerBodyHome.this, DisplayLowerBodyWorkouts.class));
     }
 
 }

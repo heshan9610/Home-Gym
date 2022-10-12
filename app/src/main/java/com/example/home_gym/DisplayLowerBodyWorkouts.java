@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ViewLowerBodyWorkout extends AppCompatActivity {
+public class DisplayLowerBodyWorkouts extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_lower_body_workout);
+        setContentView(R.layout.activity_display_lower_body_workouts);
     }
 }
