@@ -38,7 +38,7 @@ public class DisplayLowerBodyWorkouts extends AppCompatActivity {
 
         lowerBodyDetails = dbHandler.getAllLowerBodyDetails();
 
-        totalLowerBodyWorkouts.setText("Total Trains : " + lowerBodyDetails.size());
+        totalLowerBodyWorkouts.setText("Total Workouts : " + lowerBodyDetails.size());
 
         lowerBodyAdapter = new LowerBodyAdapter(lowerBodyDetails,this);
         recyclerView.setAdapter(lowerBodyAdapter);

@@ -3,6 +3,7 @@ package com.example.home_gym.Adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.Models.LowerBodyModel;
 import com.example.home_gym.R;
+import com.example.home_gym.UpdateLowerBodyWorkout;
 
 import java.util.ArrayList;
 
@@ -51,7 +53,10 @@ public class LowerBodyAdapter extends RecyclerView.Adapter<LowerBodyAdapter.Lowe
         holder.CardUpdateRowDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, lowerBodyModel.getWorkoutDay() + " Workout will be updated", Toast.LENGTH_SHORT).show();
+
+                Intent intent1 = new Intent(context, UpdateLowerBodyWorkout.class);
+                intent1.putExtra("LowerBodyModel", lowerBodyModel);
+                context.startActivity(intent1);
             }
         });
 
