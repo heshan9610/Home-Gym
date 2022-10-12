@@ -1,6 +1,7 @@
 package com.example.home_gym;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -15,13 +16,34 @@ public class DisplayLowerBodyWorkouts extends AppCompatActivity {
 
     DBHandler dbHandler;
     RecyclerView recyclerView;
-    TextView totalTrains;
+    TextView totalLowerBodyWorkouts;
     ArrayList<LowerBodyModel> lowerBodyDetails;
-    TrainAdapter trainAdapter;
+    LowerBodyAdapter lowerBodyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_lower_body_workouts);
+
+        totalLowerBodyWorkouts = findViewById(R.id.totalLowerBodyWorkouts);
+        recyclerView = findViewById(R.id.recycleViewLowerBody);
+
+        dbHandler = new DBHandler(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        lowerBodyDetails = dbHandler.getAllLowerBodyDetails();
+
+        totalLowerBodyWorkouts.setText("Total Trains : " + lowerBodyDetails.size());
+
+        lowerBodyAdapter = new LowerBodyAdapter(lowerBodyDetails, this);
+        recyclerView.setAdapter(lowerBodyAdapter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
 }

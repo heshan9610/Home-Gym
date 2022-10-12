@@ -16,10 +16,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvTotalTrains"
+            android:id="@+id/totalLowerBodyWorkouts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Trains : "
+            android:text="Total Lower Body workouts : "
             android:textSize="16dp"
             android:textStyle="bold"
             android:layout_gravity="center"

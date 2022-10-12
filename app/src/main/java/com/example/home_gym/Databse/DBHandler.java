@@ -100,6 +100,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return result;
     }
 
+
     //Display Lower Body workouts
     public ArrayList<LowerBodyModel> getAllLowerBodyDetails(){
 
@@ -132,6 +133,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return LowerBodyDetails;
     }
+
 
     //Odara's Function CRUD
     //Ravishani's Function CRUD
