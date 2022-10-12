@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.home_gym.Adapters.LowerBodyAdapter;
 import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.Models.LowerBodyModel;
 
@@ -39,7 +40,7 @@ public class DisplayLowerBodyWorkouts extends AppCompatActivity {
 
         totalLowerBodyWorkouts.setText("Total Trains : " + lowerBodyDetails.size());
 
-        lowerBodyAdapter = new LowerBodyAdapter(lowerBodyDetails, this);
+        lowerBodyAdapter = new LowerBodyAdapter(lowerBodyDetails,this);
         recyclerView.setAdapter(lowerBodyAdapter);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

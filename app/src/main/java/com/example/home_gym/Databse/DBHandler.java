@@ -104,7 +104,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //Display Lower Body workouts
     public ArrayList<LowerBodyModel> getAllLowerBodyDetails(){
 
-        ArrayList<LowerBodyModel> LowerBodyDetails = new ArrayList<>();
+        ArrayList<LowerBodyModel> lowerBodyDetails = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
@@ -125,13 +125,13 @@ public class DBHandler extends SQLiteOpenHelper {
                 String workoutBenefits= cursor.getString(4);
 
                 LowerBodyModel lowerBodyModel= new LowerBodyModel(id, workoutDay, workoutProcedure,workoutDuration, workoutBenefits);
-                LowerBodyDetails.add(lowerBodyModel);
+                lowerBodyDetails.add(lowerBodyModel);
 
             }while(cursor.moveToNext());
 
         }
 
-        return LowerBodyDetails;
+        return lowerBodyDetails;
     }
 
 
