@@ -1,10 +1,13 @@
 package com.example.home_gym.Databse;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.home_gym.Models.LowerBodyModel;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -74,6 +77,25 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //Suran's Function CRUD
     //HEshan's Function CRUD
+
+    //LowerBody Function-------------------------------------------------------------------------------------------
+
+    //Insert Lower Body workout to the table
+    public long InsertLowerBodyWorkout(LowerBodyModel lowerBodyModel) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(LOWERBODY_DAY,lowerBodyModel.getWorkoutDay());
+        contentValues.put(LOWERBODY_PROCEDURE,lowerBodyModel.getProcedure());
+        contentValues.put(LOWERBODY_TIMINGDURATION,lowerBodyModel.getDuration());
+        contentValues.put(LOWERBODY_BENEFITS,lowerBodyModel.getBenefits());
+
+        long result = sqLiteDatabase.insert(LOWERBODY_TABLE_NAME, null, contentValues);
+
+        return result;
+    }
     //Odara's Function CRUD
     //Ravishani's Function CRUD
 

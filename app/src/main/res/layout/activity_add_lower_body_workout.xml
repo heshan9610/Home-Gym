@@ -44,13 +44,13 @@
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/esds"
+                android:id="@+id/lowerBodyDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Procedure-->
+        <!--Workout Procedure-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/effs"
+                android:id="@+id/lowerBodyProcedure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
@@ -74,7 +74,7 @@
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/eff"
+                android:id="@+id/lowerBodyDuration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
@@ -89,7 +89,7 @@
             android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/efffgf"
+                android:id="@+id/lowerBodyBenefits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
@@ -97,9 +97,11 @@
 
         <!--Save btn-->
         <Button
+            android:id="@+id/saveLowerBodyWorkout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:onClick="insertLowerBodyWorkout"
             android:text="Save"
             android:textStyle="bold"
             android:textSize="15dp"/>
