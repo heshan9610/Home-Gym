@@ -129,6 +129,27 @@ public class DBHandler extends SQLiteOpenHelper {
         return DietPlans;
     }
 
+    public int UpdateDietPlan(DietModel dietModel) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValue = new ContentValues();
+
+        //store all data and pass it to database table
+        contentValue.put(DIET_TIME,dietModel.getdTime());
+        contentValue.put(DIET_DATE,dietModel.getdDate());
+        contentValue.put(DIET_DESCRIPTION,dietModel.getdDescription());
+
+        return sqLiteDatabase.update(DIET_TABLE_NAME, contentValue, "id=?", new String[]{String.valueOf(dietModel.getId())});
+
+    }
+
+    public int deleteDietPlan(int id) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        return sqLiteDatabase.delete(DIET_TABLE_NAME, "id=?",new String[]{String.valueOf(id)});
+    }
+
     //Heshan's Function CRUD
 
     //Odara's Function CRUD

@@ -1,6 +1,7 @@
 package com.example.home_gym.Adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.Models.DietModel;
 import com.example.home_gym.R;
 import com.example.home_gym.UpdateDiet;
@@ -61,10 +64,37 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.DietVH>{
         holder.cardDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(context, dietModel.getdTime() + "Will Be Deleted", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setTitle("Confirmation!");
+                builder.setMessage("Are you sure to delete " + dietModel.getdTime() + " ?");
+                builder.setIcon(android.R.drawable.ic_menu_delete);
+                builder.setCancelable(false);
+
+                //Yes
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        DBHandler dbHandler = new DBHandler(context);
+
+                        int result = dbHandler.deleteDietPlan(dietModel.getId());
+
+                        if (result > 0) {
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            diets.remove(dietModel);
+                            notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                //No
+                builder.setNegativeButton("No", null);
+                builder.show();
             }
         });
-
     }
 
     @Override
