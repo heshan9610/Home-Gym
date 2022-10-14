@@ -18,6 +18,8 @@
     <string name="rawMeals">Meals :</string>
     <string name="btnupdate">update</string>
     <string name="btndelete">Delete</string>
+    <string name="meal_of_the_day">Meal Of The Day</string>
+    <string name="meal">Meal</string>
     <!--Diet Spinner-->
     <string-array name="dietNames">
         <item>Breakfast</item>

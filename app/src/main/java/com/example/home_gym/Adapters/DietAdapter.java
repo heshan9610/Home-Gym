@@ -48,6 +48,7 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.DietVH>{
         final DietModel dietModel = diets.get(position);
 
         holder.tvTime.setText(dietModel.getdTime());
+        holder.tvMeal.setText(dietModel.getdMealOfDay());
         holder.tvDate.setText(dietModel.getdDate());
         holder.tvBody.setText(dietModel.getdDescription());
 
@@ -75,16 +76,16 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.DietVH>{
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
                         DBHandler dbHandler = new DBHandler(context);
 
                         int result = dbHandler.deleteDietPlan(dietModel.getId());
 
-                        if (result > 0) {
+                        if(result > 0){
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             diets.remove(dietModel);
                             notifyDataSetChanged();
-                        } else {
+                        }
+                        else {
                             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
                         }
                     }

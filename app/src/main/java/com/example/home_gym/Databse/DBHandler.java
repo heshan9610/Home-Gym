@@ -38,9 +38,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 " ("
                 + DIET_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DIET_NAME + " TEXT, "
-                + DIET_TIME + " TEXT, "
+                + DIET_DESCRIPTION + " TEXT, "
                 + DIET_DATE + " TEXT, "
-                + DIET_DESCRIPTION + " TEXT" +
+                + DIET_TIME + " TEXT" +
                 ");";
 
         //Odara's Function Table Create Query
@@ -89,9 +89,10 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues contentValue = new ContentValues();
 
         //store all data and pass it to database table
-        contentValue.put(DIET_TIME,DM.getdTime());
-        contentValue.put(DIET_DATE,DM.getdDate());
+        contentValue.put(DIET_NAME,DM.getdMealOfDay());
         contentValue.put(DIET_DESCRIPTION,DM.getdDescription());
+        contentValue.put(DIET_DATE,DM.getdDate());
+        contentValue.put(DIET_TIME,DM.getdTime());
 
         //insert data inside database table
         return sqLiteDatabase.insert(DIET_TABLE_NAME,null, contentValue);
@@ -116,11 +117,12 @@ public class DBHandler extends SQLiteOpenHelper {
             do{
                 //row data
                 int id = cursor.getInt(0);
-                String dTime = cursor.getString(1);
-                String dDate = cursor.getString(2);
-                String dBody = cursor.getString(4);
+                String dName = cursor.getString(1);
+                String dBody = cursor.getString(2);
+                String dDate = cursor.getString(4);
+                String dTime = cursor.getString(4);
 
-                DietModel DM = new DietModel(id, dTime, dDate, dBody);
+                DietModel DM = new DietModel(id,dName, dBody, dDate, dTime);
                 DietPlans.add(DM);
 
             }while(cursor.moveToNext()); // next row
@@ -135,11 +137,12 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues contentValue = new ContentValues();
 
         //store all data and pass it to database table
-        contentValue.put(DIET_TIME,dietModel.getdTime());
-        contentValue.put(DIET_DATE,dietModel.getdDate());
+        contentValue.put(DIET_NAME,dietModel.getdMealOfDay());
         contentValue.put(DIET_DESCRIPTION,dietModel.getdDescription());
+        contentValue.put(DIET_DATE,dietModel.getdDate());
+        contentValue.put(DIET_TIME,dietModel.getdTime());
 
-        return sqLiteDatabase.update(DIET_TABLE_NAME, contentValue, "id=?", new String[]{String.valueOf(dietModel.getId())});
+        return sqLiteDatabase.update(DIET_TABLE_NAME, contentValue, "Diet_Id=?", new String[]{String.valueOf(dietModel.getId())});
 
     }
 
@@ -147,7 +150,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
-        return sqLiteDatabase.delete(DIET_TABLE_NAME, "id=?",new String[]{String.valueOf(id)});
+        return sqLiteDatabase.delete(DIET_TABLE_NAME, "Diet_Id=?",new String[]{String.valueOf(id)});
     }
 
     //Heshan's Function CRUD

@@ -5,21 +5,27 @@ import java.io.Serializable;
 public class DietModel implements Serializable {
 
     private int id;
+    private String dMealOfDay;
+    private String dDescription;
     private String dTime;
     private String dDate;
-    private String dDescription;
+;
 
-    public DietModel(int id, String dTime, String dDate, String dDescription) {
+    public DietModel(int id, String dMealOfDay, String dDescription, String dDate, String dTime) {
         this.id = id;
+        this.dMealOfDay =dMealOfDay;
+        this.dDescription = dDescription;
         this.dTime = dTime;
         this.dDate = dDate;
-        this.dDescription = dDescription;
+
     }
 
-    public DietModel(String dTime, String dDate, String dDescription) {
+    public DietModel(String dMealOfDay, String dDescription, String dDate,  String dTime) {
+        this.dMealOfDay= dMealOfDay;
+        this.dDescription = dDescription;
         this.dTime = dTime;
         this.dDate = dDate;
-        this.dDescription = dDescription;
+
     }
 
 
@@ -29,6 +35,14 @@ public class DietModel implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getdMealOfDay() {
+        return dMealOfDay;
+    }
+
+    public void setdMealOfDay(String dMealOfDay) {
+        this.dMealOfDay = dMealOfDay;
     }
 
     public String getdTime() {

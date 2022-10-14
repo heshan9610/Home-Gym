@@ -2,57 +2,100 @@ package com.example.home_gym;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.Models.DietModel;
 
-public class AddDiet extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.util.Calendar;
+import java.util.Locale;
 
-    EditText edDietTime, edDietDate, edDietBody;
+public class AddDiet extends AppCompatActivity {
+
+    DBHandler dbHandler;
+    EditText edDietTime, edDietDate, edDietBody, edMealOfDay;
+    Button btnCalendar;
+    int y, m, d; //For Calender
+    int t1Hour, t1Minute, t2Hour, t2Minute;
+    Toast dataSavedToast, dataDeleteToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_diet);
 
+        edMealOfDay = findViewById(R.id.edMealOfDay);
+        edDietBody = findViewById(R.id.edDietBody);
         edDietTime = findViewById(R.id.edDietTime);
         edDietDate = findViewById(R.id.edDietDate);
-        edDietBody = findViewById(R.id.edDietBody);
 
-        Spinner dietName = findViewById(R.id.dietName);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.dietNames, android.R.layout.simple_spinner_item );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dietName.setAdapter(adapter);
-        dietName.setOnItemSelectedListener(this);
+        final Calendar c = Calendar.getInstance();
+
+        //Calendar View
+        edDietDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                y = c.get(Calendar.YEAR);
+                m = c.get(Calendar.MONTH);
+                d = c.get(Calendar.DATE);
+
+                DatePickerDialog DPD = new DatePickerDialog(AddDiet.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        edDietDate.setText(i + " /" + i1 + "/" + i2);
+                    }
+                },y, m, d);
+                DPD.show();
+            }
+        });
+
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String text = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(),text, Toast.LENGTH_SHORT).show();
+    //Time Picker
+    public void popTimePicker(View view) {
+
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+
+                t1Hour = selectedHour;
+                t1Minute = selectedMinute;
+
+                edDietTime.setText(String.format(Locale.getDefault(), "%02d:%02d", t1Hour,t1Minute));
+
+            }
+        };
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, t1Hour, t1Minute, true);
+
+        timePickerDialog.setTitle("Select Time");
+        timePickerDialog.show();
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-        startActivity(new Intent(AddDiet.this, DietList.class));
-    }
-
+    //Insert Function
     public void SaveDiet(View view) {
+
+        String dietMealOfDay = edMealOfDay.getText().toString().toString();
+        String dietBody = edDietBody.getText().toString().toString();
         String dietTime = edDietTime.getText().toString().toString();
         String dietDate = edDietDate.getText().toString().toString();
-        String dietBody = edDietBody.getText().toString().toString();
 
         DBHandler DbHandler = new DBHandler(AddDiet.this);
 
-        DietModel DM = new DietModel(dietTime, dietDate, dietBody);
+        DietModel DM = new DietModel(dietMealOfDay, dietBody, dietDate, dietTime);
 
         long result = DbHandler.AddDiet(DM);
         
