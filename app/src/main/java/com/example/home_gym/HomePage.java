@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class HomePage extends AppCompatActivity {
 
-    TextView btnDietHome;
+    TextView btnDietHome, btnStopWatch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,21 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         btnDietHome =findViewById(R.id.dietHome);
+        btnStopWatch =findViewById(R.id.btnStopWatch);
 
         btnDietHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent dietHome = new Intent(HomePage.this, DietHome.class);
                 startActivity(dietHome);
+            }
+        });
+
+        btnStopWatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent stopWatch = new Intent(HomePage.this, StopWatch.class);
+                startActivity(stopWatch);
             }
         });
     }

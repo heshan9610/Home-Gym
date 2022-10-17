@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp">
 
             <!--Header-->
@@ -34,27 +34,40 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edMealOfDay"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/meal_of_the_day"/>
+                android:hint="@string/meal_of_the_day"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/custom_input"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Meal-->
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edDietBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/meal"/>
+                android:hint="@string/meal"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/custom_input"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:gravity="top"
+                android:scrollbars="vertical"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollHorizontally="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -62,26 +75,32 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edDietDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/DietDate" />
+                android:hint="@string/DietDate"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/custom_input"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Time-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edDietTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/DietTime"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/custom_input"
                 android:inputType="textMultiLine"
                 android:onClick="popTimePicker"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -89,9 +108,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/UpdateDiet"
+            android:text="@string/DietSave"
             android:onClick="SaveDiet"
-            android:padding="10dp"/>
+            android:padding="5dp"/>
 
     </LinearLayout>
 </ScrollView>

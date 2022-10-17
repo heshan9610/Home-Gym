@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp">
 
             <!--Header-->
@@ -54,7 +54,14 @@
                 android:id="@+id/edDietBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/meal"/>
+                android:hint="@string/meal"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:gravity="top"
+                android:scrollbars="vertical"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollHorizontally="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -89,7 +96,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/DietSave"
+            android:text="@string/UpdateDiet"
             android:onClick="SaveDiet"
             android:padding="10dp"/>
 
