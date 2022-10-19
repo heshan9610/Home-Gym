@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    tools:context=".ContactHome">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="Home Gym"
+                android:text="Trainer Contacts"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -40,11 +40,25 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/ssd"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Add new Contact"
+                android:onClick="displayAddContact"
+                app:layout_constraintBottom_toTopOf="@+id/sdsd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.933" />
+
+
+            <Button
                 android:id="@+id/sffsf"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Contacts"
-                android:onClick="displayContactHomePage"
+                android:text="View Contacts"
+                android:onClick="displayContactList"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"

@@ -1,10 +1,16 @@
 package com.example.home_gym.Databse;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.home_gym.Models.ContactModel;
+
+import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -64,15 +70,73 @@ public class DBHandler extends SQLiteOpenHelper {
         //Suran's Drop Table Query
         //Odara's Drop Table Query
         //Ravishani's Drop Table Query
+
         String DROP_CONTACT_QUERY = " DROP TABLE IF EXISTS " + CONTACT_TABLE_NAME;
+
+        //drop the contact table
+
         sqLiteDatabase.execSQL(DROP_CONTACT_QUERY);
+
+        //create table again
+
         onCreate(sqLiteDatabase);
     }
+
+
 
     //Suran's Function CRUD
     //HEshan's Function CRUD
     //Odara's Function CRUD
     //Ravishani's Function CRUD
 
+    //Contact Function
 
+    public long InsertContact(ContactModel contactModel) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(TRAINER_NAME,contactModel.getName());
+        contentValues.put(TRAINER_QUALIFICATION,contactModel.getQualification());
+        contentValues.put(TRAINER_CONTACT_NUM ,contactModel.getContactNum());
+        contentValues.put(TRAINER_TIME,contactModel.getTime());
+
+        long result = sqLiteDatabase.insert(CONTACT_TABLE_NAME, null, contentValues);
+
+        return result;
+
+    }
+    //Diplay Contact list
+
+    public ArrayList<ContactModel> getAllLContactDetails(){
+
+        ArrayList<ContactModel> ContactDetails = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(" SELECT * FROM " + CONTACT_TABLE_NAME,null);
+
+
+        if( cursor.moveToFirst()){
+
+            do{
+                //row data
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                String qualifications = cursor.getString(2);
+                String contactno= cursor.getString(3);
+                String time= cursor.getString(4);
+
+                ContactModel contactModel= new ContactModel(id, name, qualifications,contactno, time);
+                ContactDetails.add(contactModel);
+
+            }while(cursor.moveToNext());
+
+        }
+
+
+        return ContactDetails;
+
+    }
 }
