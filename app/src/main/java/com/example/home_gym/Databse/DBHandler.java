@@ -86,14 +86,14 @@ public class DBHandler extends SQLiteOpenHelper{
         onCreate(sqLiteDatabase);
     }
 
+
     //Odara's Function CRUD
 
     //Upper Body Function-------------------------------------------------------------------------------------------
 
-//    //Insert Upper Body workout to the table
+        //Insert Upper Body workout to the table
 //    public long InsertUpperBodyWorkout(UpperBodyModel UpperBodyModel) {
-//
-//        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+//    SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 //
 //        ContentValues contentValues = new ContentValues();
 //
@@ -106,8 +106,9 @@ public class DBHandler extends SQLiteOpenHelper{
 //
 //        long result = sqLiteDatabase.insert(UPPERBODY_TABLE_NAME, null, contentValues);
 //
-//        return result;
-//    }
+
+ //       return result;
+ //  }
 //
 //
 //    //Display Lower Body workouts
