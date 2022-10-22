@@ -71,7 +71,7 @@
                 android:padding="16dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        
+
         <!-- Tutorial Video Link -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="5dp"
