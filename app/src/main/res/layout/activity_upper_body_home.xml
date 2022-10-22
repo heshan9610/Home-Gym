@@ -15,7 +15,7 @@
 
         <!--  Add Upper Workout button -->
         <Button
-            android:id="@+id/AddUpperWorkout"
+            android:id="@+id/btnAddUpperWorkout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add new Workout"
@@ -31,7 +31,7 @@
 
        <!--  Add Upper Workout button -->
         <Button
-            android:id="@+id/DisplayUpperWorkout"
+            android:id="@+id/btnDisplayUpperWorkout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="View Upper Body Workouts"
