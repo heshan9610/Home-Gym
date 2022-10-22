@@ -26,6 +26,8 @@ public class AddUpperBodyWorkouts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_upper_body_workouts);
 
+
+
 //        upperBodyDay = findViewById(R.id.upperBodyDay);
 //        upperBodyProcedure = findViewById(R.id.upperBodyProcedure);
 //        upperBodyBenefits = findViewById(R.id.upperBodyBenefits);
@@ -33,7 +35,7 @@ public class AddUpperBodyWorkouts extends AppCompatActivity {
 //        upperBodyVideoLinks = findViewById(R.id.upperBodyVideoLinks);
     }
 
-
+//insert
     public void InsertUpperBodyWorkout(View view){
         String day = upperBodyDay.getText().toString().trim();
         String procedure = upperBodyProcedure.getText().toString().trim();
