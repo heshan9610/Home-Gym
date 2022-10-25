@@ -1,10 +1,12 @@
 package com.example.home_gym.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.home_gym.Models.ContactModel;
 import com.example.home_gym.R;
+import com.example.home_gym.UpdateContact;
 
 import java.util.ArrayList;
 
@@ -39,12 +42,28 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     @Override
     public void onBindViewHolder(@NonNull ContactVH holder, int position) {
 
-        ContactModel contactModel = ContactDetails.get(position);
+        final ContactModel contactModel = ContactDetails.get(position);
         holder.tvName.setText(contactModel.getName());
         holder.tvQualifications.setText(contactModel.getQualification());
         holder.tvContactno.setText(contactModel.getContactNum());
         holder.tvTime.setText(contactModel.getTime());
 
+        holder.concardUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(context, contactModel.getName() +" will be updated", Toast.LENGTH_SHORT).show();
+                Intent intent01 = new Intent(context, UpdateContact.class);
+                intent01.putExtra("ContactModel", contactModel);
+                context.startActivity(intent01);
+            }
+        });
+
+        holder.concardDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, contactModel.getName() +" will be deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }

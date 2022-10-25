@@ -19,6 +19,7 @@ public class ContactList extends AppCompatActivity {
     RecyclerView recyclerView;
     ContactAdapter contactAdapter;
     ArrayList<ContactModel> ContactDetails;
+    DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,17 @@ public class ContactList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         tvTotal =findViewById(R.id.tvTotal);
 
-        DBHandler dbHandler = new DBHandler(this);
+        dbHandler = new DBHandler(this);
 
+        // for (ContactModel con : ContactDetails)
+        //{
+          //  System.out.println(con.getName());
+        //}
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
         ContactDetails = dbHandler.getAllLContactDetails();
 
         tvTotal.setText("Total Contacts :" + ContactDetails.size());
@@ -40,12 +50,5 @@ public class ContactList extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-
-
-       // for (ContactModel con : ContactDetails)
-        //{
-          //  System.out.println(con.getName());
-        //}
-
     }
 }

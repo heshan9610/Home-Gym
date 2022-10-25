@@ -23,7 +23,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TRAINER_ID = "trainer_id";
     private static final String TRAINER_NAME = "trainer_name";
     private static final String TRAINER_QUALIFICATION = "trainer_qualification";
-    private static final String  TRAINER_CONTACT_NUM= "trainer_contact_num";
+    private static final String TRAINER_CONTACT_NUM = "trainer_contact_num";
     private static final String TRAINER_TIME = "trainer_time";
 
 
@@ -41,13 +41,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //Ravishani's Function Table Create Query
 
-        String TABLE_CREATE_ADD_CONTACT = "CREATE TABLE " + CONTACT_TABLE_NAME + " "+
+        String TABLE_CREATE_ADD_CONTACT = "CREATE TABLE " + CONTACT_TABLE_NAME + " " +
                 " ("
                 + TRAINER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TRAINER_NAME + " TEXT, "
-                +TRAINER_QUALIFICATION + " TEXT, "
-                +TRAINER_CONTACT_NUM + " TEXT, "
-                + TRAINER_TIME + " TEXT"+
+                + TRAINER_QUALIFICATION + " TEXT, "
+                + TRAINER_CONTACT_NUM + " TEXT, "
+                + TRAINER_TIME + " TEXT" +
 
                 ");";
 
@@ -83,7 +83,6 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-
     //Suran's Function CRUD
     //HEshan's Function CRUD
     //Odara's Function CRUD
@@ -97,10 +96,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(TRAINER_NAME,contactModel.getName());
-        contentValues.put(TRAINER_QUALIFICATION,contactModel.getQualification());
-        contentValues.put(TRAINER_CONTACT_NUM ,contactModel.getContactNum());
-        contentValues.put(TRAINER_TIME,contactModel.getTime());
+        contentValues.put(TRAINER_NAME, contactModel.getName());
+        contentValues.put(TRAINER_QUALIFICATION, contactModel.getQualification());
+        contentValues.put(TRAINER_CONTACT_NUM, contactModel.getContactNum());
+        contentValues.put(TRAINER_TIME, contactModel.getTime());
 
         long result = sqLiteDatabase.insert(CONTACT_TABLE_NAME, null, contentValues);
 
@@ -109,29 +108,29 @@ public class DBHandler extends SQLiteOpenHelper {
     }
     //Diplay Contact list
 
-    public ArrayList<ContactModel> getAllLContactDetails(){
+    public ArrayList<ContactModel> getAllLContactDetails() {
 
         ArrayList<ContactModel> ContactDetails = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        Cursor cursor = sqLiteDatabase.rawQuery(" SELECT * FROM " + CONTACT_TABLE_NAME,null);
+        Cursor cursor = sqLiteDatabase.rawQuery(" SELECT * FROM " + CONTACT_TABLE_NAME, null);
 
 
-        if( cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
 
-            do{
+            do {
                 //row data
                 int id = cursor.getInt(0);
                 String name = cursor.getString(1);
                 String qualifications = cursor.getString(2);
-                String contactno= cursor.getString(3);
-                String time= cursor.getString(4);
+                String contactno = cursor.getString(3);
+                String time = cursor.getString(4);
 
-                ContactModel contactModel= new ContactModel(id, name, qualifications,contactno, time);
+                ContactModel contactModel = new ContactModel(id, name, qualifications, contactno, time);
                 ContactDetails.add(contactModel);
 
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
 
         }
 
@@ -139,4 +138,23 @@ public class DBHandler extends SQLiteOpenHelper {
         return ContactDetails;
 
     }
+        //update contact details
+
+    public int UpdateContact(ContactModel contactModel) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(TRAINER_NAME, contactModel.getName());
+        contentValues.put(TRAINER_QUALIFICATION, contactModel.getQualification());
+        contentValues.put(TRAINER_CONTACT_NUM, contactModel.getContactNum());
+        contentValues.put(TRAINER_TIME, contactModel.getTime());
+
+        int result = sqLiteDatabase.update(CONTACT_TABLE_NAME, contentValues, "TRAINER_ID=?", new String[]{String.valueOf(contactModel.getId())});
+
+        return result;
+    }
+
+
 }
