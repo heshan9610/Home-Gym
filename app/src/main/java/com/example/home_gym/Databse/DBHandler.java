@@ -144,6 +144,23 @@ public class DBHandler extends SQLiteOpenHelper {
         return result;
     }
 
+    //Update Lower Body workout
+    public int UpdateLowerBodyWorkout(LowerBodyModel lowerBodyModel) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(LOWERBODY_DAY, lowerBodyModel.getWorkoutDay());
+        contentValues.put(LOWERBODY_PROCEDURE, lowerBodyModel.getProcedure());
+        contentValues.put(LOWERBODY_TIMINGDURATION, lowerBodyModel.getDuration());
+        contentValues.put(LOWERBODY_BENEFITS, lowerBodyModel.getBenefits());
+
+
+
+        int result = sqLiteDatabase.update(LOWERBODY_TABLE_NAME, contentValues, "LOWERBODY_ID=?" ,new String[]{String.valueOf(lowerBodyModel.getId())});
+
+        return result;
+    }
 
     //Odara's Function CRUD
     //Ravishani's Function CRUD
