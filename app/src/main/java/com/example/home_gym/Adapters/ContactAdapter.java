@@ -1,5 +1,6 @@
 package com.example.home_gym.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -61,7 +62,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.concardDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, contactModel.getName() +" will be deleted", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, contactModel.getName() +" will be deleted", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setTitle("Confirmation!");
+                builder.setMessage("Are you sure to delete " + contactModel.getName() + " Contact ?");
             }
         });
 
