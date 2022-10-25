@@ -16,7 +16,6 @@ import com.example.home_gym.Models.UpperBodyModel;
 
 public class AddUpperBodyWorkouts extends AppCompatActivity {
 
-
     //edit text fields added
 
     EditText upperBodyDay, upperBodyProcedure, upperBodyBenefits, upperBodyDuration, upperBodyVideoLinks;
@@ -26,17 +25,17 @@ public class AddUpperBodyWorkouts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_upper_body_workouts);
 
-
-
-//        upperBodyDay = findViewById(R.id.upperBodyDay);
-//        upperBodyProcedure = findViewById(R.id.upperBodyProcedure);
-//        upperBodyBenefits = findViewById(R.id.upperBodyBenefits);
-//        upperBodyDuration = findViewById(R.id.upperBodyDuration);
-//        upperBodyVideoLinks = findViewById(R.id.upperBodyVideoLinks);
-    }
+        upperBodyDay = findViewById(R.id.upperBodyDay);
+        upperBodyProcedure = findViewById(R.id.upperBodyProcedure);
+        upperBodyBenefits = findViewById(R.id.upperBodyBenefits);
+        upperBodyDuration = findViewById(R.id.upperBodyDuration);
+        upperBodyVideoLinks = findViewById(R.id.upperBodyVideoLinks);
+        }
 
 //insert
-    public void InsertUpperBodyWorkout(View view){
+
+    public void Save(View view) {
+
         String day = upperBodyDay.getText().toString().trim();
         String procedure = upperBodyProcedure.getText().toString().trim();
         String benefits = upperBodyDuration.getText().toString().trim();
@@ -44,24 +43,19 @@ public class AddUpperBodyWorkouts extends AppCompatActivity {
         String links = upperBodyVideoLinks.getText().toString().trim();
 
 
-        //DBHandler dbHandler = new DBHandler(AddUpperBodyWorkout.this);
+        DBHandler dbHandler = new DBHandler(AddUpperBodyWorkouts.this);
 
-       UpperBodyModel UpperBodyModel = new UpperBodyModel(day, procedure, duration, benefits,links);
+        UpperBodyModel UpperBodyModel = new UpperBodyModel(day, procedure, duration, benefits,links);
 
-//        long result = dbHandler.InsertUpperBodyWorkout(UpperBodyModel);
-//
-//        if(result > 0){
-//            Toast.makeText(this, "Lower Body workout Saved", Toast.LENGTH_SHORT).show();
-//            //dataSavedToast.show();
-//        }else {
-//            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
-//        }
+        long result = dbHandler.InsertUpperBodyWorkout(UpperBodyModel);
 
-    }
-
-
-    public void Save(View view) {
-        startActivity(new Intent(AddUpperBodyWorkouts.this,EditUpperBodyWorkouts.class));
+        if(result > 0){
+            Toast.makeText(this, "Lower Body workout Saved", Toast.LENGTH_SHORT).show();
+            //dataSavedToast.show();
+        }else {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+        }
 
     }
+
 }

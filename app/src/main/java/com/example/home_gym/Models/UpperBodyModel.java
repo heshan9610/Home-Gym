@@ -29,44 +29,52 @@ public class UpperBodyModel implements Serializable {
     }
 
 
-//    public int getUppid() {
-//        return uppid;
-//    }
-//
-//    public void setUppid(int uppid) {
-//        this.uppid = uppid;
-//    }
-//
-//    public String getupperworkoutDay() {
-//        return workoutDay;
-//    }
-//
-//    public void setWorkoutDay(String workoutDay) {
-//        this.workoutDay = workoutDay;
-//    }
-//
-//    public String getupperprocedure() {
-//        return procedure;
-//    }
-//
-//    public void setProcedure(String procedure) {
-//        this.procedure = procedure;
-//    }
-//
-//    public String getDuration() {
-//        return duration;
-//    }
-//
-//    public void setDuration(String duration) {
-//        this.duration = duration;
-//    }
-//
-//    public String getBenefits() {
-//        return benefits;
-//    }
-//
-//    public void setBenefits(String benefits) {
-//        this.benefits = benefits;
-//    }
+    public int getuppid() {
+        return uppid;
+    }
+
+    public void setuppid(int uppid) {
+        this.uppid = uppid;
+    }
+
+    public String getupperworkoutDay() {
+        return upperworkoutDay;
+    }
+
+    public void setupperworkoutDay(String upperworkoutDay) {
+        this.upperworkoutDay = upperworkoutDay;
+    }
+
+    public String getupperprocedure() {
+        return upperprocedure;
+    }
+
+    public void setupperprocedure(String upperprocedure) {
+        this.upperprocedure = upperprocedure;
+    }
+
+    public String getupperbenefits() {
+        return upperbenefits;
+    }
+
+    public void setupperbenefits(String upperbenefits) {
+        this.upperbenefits = upperbenefits;
+    }
+
+    public String getupperduration() {
+        return upperduration;
+    }
+
+    public void setupperduration(String upperduration) {
+        this.upperduration = upperduration;
+    }
+
+    public String getuppertutoriallinks() {
+        return uppertutoriallinks;
+    }
+
+    public void setuppertutoriallinks(String uppertutoriallinks) {
+        this.uppertutoriallinks = uppertutoriallinks;
+    }
 
 }

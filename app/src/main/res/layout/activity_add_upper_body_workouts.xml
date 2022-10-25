@@ -21,6 +21,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/upperBodyDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Workout Days of a week "
@@ -34,7 +35,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/WorkoutProcedure"
+                android:id="@+id/upperBodyProcedure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Workout procedure"
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/WorkoutBenefits"
+                android:id="@+id/upperBodyBenefits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Benefits"
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/WorkoutDuration"
+                android:id="@+id/upperBodyDuration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Timing and duration"
@@ -76,7 +77,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/WorkoutLink"
+                android:id="@+id/upperBodyVideoLinks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tutorial Video Link"

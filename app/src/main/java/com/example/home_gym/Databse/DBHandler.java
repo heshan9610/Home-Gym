@@ -92,23 +92,23 @@ public class DBHandler extends SQLiteOpenHelper{
     //Upper Body Function-------------------------------------------------------------------------------------------
 
         //Insert Upper Body workout to the table
-//    public long InsertUpperBodyWorkout(UpperBodyModel UpperBodyModel) {
-//    SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-//
-//        ContentValues contentValues = new ContentValues();
-//
-//        contentValues.put(UPPERBODY_DAY,UpperBodyModel.getupperworkoutDay());
-//        contentValues.put(UPPERBODY_PROCEDURE,UpperBodyModel.getupperprocedure());
-//        contentValues.put(UPPERBODY_BENEFITS,UpperBodyModel.getupperbenefits());
-//        contentValues.put(UPPERBODY_TIMINGDURATION,UpperBodyModel.getupperduration());
-//        contentValues.put(UPPERBODY_TUTORIALLINK,UpperBodyModel.getuppertutoriallinks());
-//
-//
-//        long result = sqLiteDatabase.insert(UPPERBODY_TABLE_NAME, null, contentValues);
-//
+    public long InsertUpperBodyWorkout(UpperBodyModel UpperBodyModel) {
+    SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
- //       return result;
- //  }
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(UPPERBODY_DAY,UpperBodyModel.getupperworkoutDay());
+        contentValues.put(UPPERBODY_PROCEDURE,UpperBodyModel.getupperprocedure());
+        contentValues.put(UPPERBODY_BENEFITS,UpperBodyModel.getupperbenefits());
+        contentValues.put(UPPERBODY_TIMINGDURATION,UpperBodyModel.getupperduration());
+        contentValues.put(UPPERBODY_TUTORIALLINK,UpperBodyModel.getuppertutoriallinks());
+
+
+        long result = sqLiteDatabase.insert(UPPERBODY_TABLE_NAME, null, contentValues);
+
+
+        return result;
+   }
 //
 //
 //    //Display Lower Body workouts
