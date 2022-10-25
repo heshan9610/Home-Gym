@@ -2,6 +2,7 @@ package com.example.home_gym.Adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.Models.ContactModel;
 import com.example.home_gym.R;
 import com.example.home_gym.UpdateContact;
@@ -67,6 +69,33 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
                 builder.setTitle("Confirmation!");
                 builder.setMessage("Are you sure to delete " + contactModel.getName() + " Contact ?");
+                builder.setIcon(android.R.drawable.ic_menu_delete);
+
+                //yes
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        DBHandler dbHandler = new DBHandler(context);
+
+                        int result = dbHandler.DeleteContact(contactModel.getId());
+
+                        if(result > 0){
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            ContactDetails.remove(contactModel);
+                            notifyDataSetChanged();
+
+                        }else {
+                            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+                //no
+
+                builder.setNegativeButton("No", null);
+                builder.show();
             }
         });
 

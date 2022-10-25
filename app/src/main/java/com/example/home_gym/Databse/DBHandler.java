@@ -88,7 +88,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //Odara's Function CRUD
     //Ravishani's Function CRUD
 
-    //Contact Function
+    //Contact insert Function
 
     public long InsertContact(ContactModel contactModel) {
 
@@ -156,5 +156,15 @@ public class DBHandler extends SQLiteOpenHelper {
         return result;
     }
 
+    //Delete function
 
+    public int DeleteContact(int id) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        int result = sqLiteDatabase.delete(CONTACT_TABLE_NAME, "TRAINER_ID=?",new String[]{String.valueOf(id)});
+
+        return 0;
+
+
+    }
 }
