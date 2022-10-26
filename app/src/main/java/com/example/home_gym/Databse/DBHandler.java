@@ -163,7 +163,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         int result = sqLiteDatabase.delete(CONTACT_TABLE_NAME, "TRAINER_ID=?",new String[]{String.valueOf(id)});
 
-        return 0;
+        return result;
 
 
     }
