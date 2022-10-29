@@ -38,20 +38,20 @@ public class AddUpperBodyWorkouts extends AppCompatActivity {
 
         String day = upperBodyDay.getText().toString().trim();
         String procedure = upperBodyProcedure.getText().toString().trim();
-        String benefits = upperBodyDuration.getText().toString().trim();
         String duration = upperBodyBenefits.getText().toString().trim();
+        String benefits = upperBodyDuration.getText().toString().trim();
         String links = upperBodyVideoLinks.getText().toString().trim();
 
 
         DBHandler dbHandler = new DBHandler(AddUpperBodyWorkouts.this);
 
-        UpperBodyModel UpperBodyModel = new UpperBodyModel(day, procedure, duration, benefits,links);
+        UpperBodyModel UpperBodyModel = new UpperBodyModel(day, procedure, benefits, duration,links);
 
         long result = dbHandler.InsertUpperBodyWorkout(UpperBodyModel);
 
         if(result > 0){
-            Toast.makeText(this, "Lower Body workout Saved", Toast.LENGTH_SHORT).show();
-            //dataSavedToast.show();
+            Toast.makeText(this, "Saved" , Toast.LENGTH_SHORT).show();
+
         }else {
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
         }

@@ -103,48 +103,50 @@ public class DBHandler extends SQLiteOpenHelper{
         contentValues.put(UPPERBODY_TIMINGDURATION,UpperBodyModel.getupperduration());
         contentValues.put(UPPERBODY_TUTORIALLINK,UpperBodyModel.getuppertutoriallinks());
 
+        //insert data inside database table
+        //return sqLiteDatabase.insert(UPPERBODY_TABLE_NAME,null, contentValues);
 
-        long result = sqLiteDatabase.insert(UPPERBODY_TABLE_NAME, null, contentValues);
+        long results = sqLiteDatabase.insert(UPPERBODY_TABLE_NAME, null, contentValues);
 
+        return results;
 
-        return result;
    }
-//
-//
-//    //Display Lower Body workouts
-//    public ArrayList<UpperBodyModel> getAllLowerBodyDetails(){
-//
-//        ArrayList<UpperBodyModel> UpperBodyDetails = new ArrayList<>();
-//
-//        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-//
-//        String GET_DATA_QUERY = " SELECT * FROM " + UPPERBODY_TABLE_NAME;
-//
-//        Cursor cursor = null;
-//
-//        cursor = sqLiteDatabase.rawQuery(GET_DATA_QUERY, null);
-//
-//        if( cursor.moveToFirst()){
-//
-//            do{
-//                //row data
-//                int uppid = cursor.getInt(0);
-//                String upperworkoutDay = cursor.getString(1);
-//                String upperprocedure = cursor.getString(2);
-//                String upperbenefits= cursor.getString(3);
-//                String upperduration= cursor.getString(4);
-//                String uppertutoriallinks= cursor.getString(5);
-//
-//                UpperBodyModel UpperBodyModel= new UpperBodyModel(uppid, upperworkoutDay, upperprocedure,upperbenefits, upperduration, uppertutoriallinks);
-//                UpperBodyDetails.add(UpperBodyModel);
-//
-//            }while(cursor.moveToNext());
-//
-//        }
-//
-//        return lowerBodyDetails;
-//    }
-//
+
+
+      //Display Upper Body workouts
+        public ArrayList<UpperBodyModel> getAllUpperBodyDetails(){
+
+        ArrayList<UpperBodyModel> upperBodyDetails = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        String GET_DATA_QUERY = " SELECT * FROM " + UPPERBODY_TABLE_NAME;
+
+        Cursor cursor = null;
+
+        cursor = sqLiteDatabase.rawQuery(GET_DATA_QUERY, null);
+
+        if( cursor.moveToFirst()){
+
+            do{
+                //row data
+                int uppid = cursor.getInt(0);
+                String upperworkoutDay = cursor.getString(1);
+                String upperprocedure = cursor.getString(2);
+                String upperbenefits= cursor.getString(3);
+                String upperduration= cursor.getString(4);
+                String uppertutoriallinks= cursor.getString(5);
+
+                UpperBodyModel upperBodyModel= new UpperBodyModel(uppid, upperworkoutDay, upperprocedure,upperbenefits, upperduration, uppertutoriallinks);
+                upperBodyDetails.add(upperBodyModel);
+
+            }while(cursor.moveToNext());
+
+        }
+
+        return upperBodyDetails;
+    }
+
 //    //Delete Lower Body workout
 //    public int deleteLowerBodyWorkout(int id) {
 //

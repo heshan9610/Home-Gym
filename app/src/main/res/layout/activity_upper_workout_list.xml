@@ -18,7 +18,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/totalLowerBodyWorkouts"
+        android:id="@+id/totalUpperBodyWorkouts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Lower Body workouts : "
