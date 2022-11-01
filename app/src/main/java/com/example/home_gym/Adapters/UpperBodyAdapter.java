@@ -3,6 +3,7 @@ package com.example.home_gym.Adapters;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.home_gym.EditUpperBodyWorkouts;
 import com.example.home_gym.Models.UpperBodyModel;
+import com.example.home_gym.Databse.DBHandler;
 import com.example.home_gym.R;
 
 import java.util.ArrayList;
@@ -44,58 +47,61 @@ public class UpperBodyAdapter extends RecyclerView.Adapter<UpperBodyAdapter.Uppe
     public void onBindViewHolder(@NonNull UpperBodyVH holder, int position) {
 
         final UpperBodyModel upperBodyModel = upperBodyDetails.get(position);
+        Log.e("odara in adpter", String.valueOf(upperBodyModel.getuppid()));
         holder.workoutDayUpperBody.setText(upperBodyModel.getupperworkoutDay());
         holder.procedureUpperBody.setText(upperBodyModel.getupperprocedure());
         holder.durationUpperBody.setText(upperBodyModel.getupperduration());
         holder.benefitsUpperBody.setText(upperBodyModel.getupperbenefits());
         holder.tutorialLinkUpperBody.setText(upperBodyModel.getuppertutoriallinks());
+        holder.id = upperBodyModel.getuppid();
 
-//        holder.CardUpdateRowDisplay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent intent1 = new Intent(context, UpdateLowerBodyWorkout.class);
-//                intent1.putExtra("LowerBodyModel", lowerBodyModel);
-//                context.startActivity(intent1);
-//            }
-//        });
+        holder.CardUpdateRowDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-//        holder.CardDeleteRowDisplay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//
-//                builder.setTitle("Confirmation!");
-//                builder.setMessage("Are you sure to delete " + lowerBodyModel.getWorkoutDay() + " Workout  ?");
-//                builder.setIcon(android.R.drawable.ic_menu_delete);
-//                builder.setCancelable(false);
-//
-//                //Yes
-//                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                        DBHandler dbHandler = new DBHandler(context);
-//
-//                        int result = dbHandler.deleteLowerBodyWorkout(lowerBodyModel.getId());
-//
-//                        if(result > 0){
-//                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-//                            lowerBodyDetails.remove(lowerBodyModel);
-//                            notifyDataSetChanged();
-//                        }else {
-//                            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//
-//                //No
-//                builder.setNegativeButton("No", null);
-//                builder.show();
-//            }
-//        });
+                Intent intent1 = new Intent(context, EditUpperBodyWorkouts.class);
+                intent1.putExtra("UpperBodyModel", upperBodyModel);
+                context.startActivity(intent1);
+            }
+        });
+
+        holder.CardDeleteRowDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setTitle("Confirmation!");
+                builder.setMessage("Are you sure to delete " + upperBodyModel.getupperworkoutDay() + " Workout  ?");
+                builder.setIcon(android.R.drawable.ic_menu_delete);
+                builder.setCancelable(false);
+
+                // If Yes
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        DBHandler dbHandler = new DBHandler(context);
+
+                        int result = dbHandler.deleteLowerBodyWorkout(upperBodyModel.getuppid());
+
+                        if(result > 0){
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            upperBodyDetails.remove(upperBodyModel);
+                            notifyDataSetChanged();
+                            
+                        }else {
+                            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                //No
+                builder.setNegativeButton("No", null);
+                builder.show();
+            }
+        });
     }
 
     @Override
@@ -107,6 +113,7 @@ public class UpperBodyAdapter extends RecyclerView.Adapter<UpperBodyAdapter.Uppe
 
         TextView workoutDayUpperBody, procedureUpperBody, durationUpperBody, benefitsUpperBody, tutorialLinkUpperBody;
         CardView CardUpdateRowDisplay, CardDeleteRowDisplay;
+        int id;
 
         public UpperBodyVH(@NonNull View itemView) {
             super(itemView);
@@ -122,6 +129,4 @@ public class UpperBodyAdapter extends RecyclerView.Adapter<UpperBodyAdapter.Uppe
 
         }
     }
-
-
 }

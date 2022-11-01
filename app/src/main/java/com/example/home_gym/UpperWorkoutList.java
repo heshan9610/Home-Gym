@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.home_gym.Adapters.UpperBodyAdapter;
@@ -15,10 +16,10 @@ import java.util.ArrayList;
 
 public class UpperWorkoutList extends AppCompatActivity {
 
+    ArrayList<UpperBodyModel> upperBodyDetails;
     DBHandler dbHandler;
     RecyclerView recyclerView;
     TextView totalUpperBodyWorkouts;
-    ArrayList<UpperBodyModel> upperBodyDetails;
     UpperBodyAdapter upperBodyAdapter;
 
     @Override
@@ -31,6 +32,7 @@ public class UpperWorkoutList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycleViewUpperBody);
 
         dbHandler = new DBHandler(this);
+
     }
 
     @Override
@@ -38,6 +40,9 @@ public class UpperWorkoutList extends AppCompatActivity {
         super.onResume();
 
         upperBodyDetails = dbHandler.getAllUpperBodyDetails();
+        for(UpperBodyModel temp  : upperBodyDetails){
+            Log.e("odara",String.valueOf(temp.getuppid()));
+        }
 
         totalUpperBodyWorkouts.setText("Total Workouts : " + upperBodyDetails.size());
 

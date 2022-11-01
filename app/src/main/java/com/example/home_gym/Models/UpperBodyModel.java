@@ -11,7 +11,7 @@ public class UpperBodyModel implements Serializable {
     String upperduration;
     String uppertutoriallinks;
 
-    public UpperBodyModel(int id, String upperworkoutDay, String upperprocedure, String upperbenefits, String upperduration, String uppertutoriallinks) {
+    public UpperBodyModel(int uppid, String upperworkoutDay, String upperprocedure, String upperbenefits, String upperduration, String uppertutoriallinks) {
         this.uppid = uppid;
         this.upperworkoutDay = upperworkoutDay;
         this.upperprocedure = upperprocedure;

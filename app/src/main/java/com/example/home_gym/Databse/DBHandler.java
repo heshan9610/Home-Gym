@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -130,6 +131,9 @@ public class DBHandler extends SQLiteOpenHelper{
 
             do{
                 //row data
+                Log.e("odara c",String.valueOf(cursor.getInt(0)));
+                Log.e("odara c",cursor.getString(0));
+                Log.e("odara c",cursor.getString(1));
                 int uppid = cursor.getInt(0);
                 String upperworkoutDay = cursor.getString(1);
                 String upperprocedure = cursor.getString(2);
@@ -147,15 +151,36 @@ public class DBHandler extends SQLiteOpenHelper{
         return upperBodyDetails;
     }
 
-//    //Delete Lower Body workout
-//    public int deleteLowerBodyWorkout(int id) {
-//
-//        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-//
-//        int result = sqLiteDatabase.delete(UPPERBODY_TABLE_NAME, "UPPERBODY_ID=?",new String[]{String.valueOf(id)});
-//
-//        return result;
-//    }
+     //Delete Upper Body workout
+    public int deleteLowerBodyWorkout(int id) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        int result = sqLiteDatabase.delete(UPPERBODY_TABLE_NAME, "UPPERBODY_ID=?",new String[]{String.valueOf(id)});
+
+        return result;
+    }
+
+    //Update Upper Body workout
+    public int UpdateUpperBodyWorkout(UpperBodyModel upperBodyModel) {
+
+        Log.e("odara",upperBodyModel.getupperduration());
+        Log.e("odara",String.valueOf(upperBodyModel.getuppid()));
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(UPPERBODY_DAY, upperBodyModel.getupperworkoutDay());
+        contentValues.put(UPPERBODY_PROCEDURE, upperBodyModel.getupperprocedure());
+        contentValues.put(UPPERBODY_TIMINGDURATION, upperBodyModel.getupperduration());
+        contentValues.put(UPPERBODY_BENEFITS, upperBodyModel.getupperbenefits());
+        contentValues.put(UPPERBODY_TUTORIALLINK, upperBodyModel.getuppertutoriallinks());
+
+
+        int result = sqLiteDatabase.update(UPPERBODY_TABLE_NAME, contentValues, "UPPERBODY_ID=?" ,new String[]{String.valueOf(upperBodyModel.getuppid())});
+
+        return result;
+    }
     //Ravishani's Function CRUD
 
     //HEshan's Function CRUD
