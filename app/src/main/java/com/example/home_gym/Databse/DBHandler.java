@@ -131,9 +131,7 @@ public class DBHandler extends SQLiteOpenHelper{
 
             do{
                 //row data
-                Log.e("odara c",String.valueOf(cursor.getInt(0)));
-                Log.e("odara c",cursor.getString(0));
-                Log.e("odara c",cursor.getString(1));
+               
                 int uppid = cursor.getInt(0);
                 String upperworkoutDay = cursor.getString(1);
                 String upperprocedure = cursor.getString(2);

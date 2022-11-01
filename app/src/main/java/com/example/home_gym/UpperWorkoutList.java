@@ -41,7 +41,6 @@ public class UpperWorkoutList extends AppCompatActivity {
 
         upperBodyDetails = dbHandler.getAllUpperBodyDetails();
         for(UpperBodyModel temp  : upperBodyDetails){
-            Log.e("odara",String.valueOf(temp.getuppid()));
         }
 
         totalUpperBodyWorkouts.setText("Total Workouts : " + upperBodyDetails.size());

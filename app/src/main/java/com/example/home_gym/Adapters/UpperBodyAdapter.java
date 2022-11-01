@@ -47,7 +47,6 @@ public class UpperBodyAdapter extends RecyclerView.Adapter<UpperBodyAdapter.Uppe
     public void onBindViewHolder(@NonNull UpperBodyVH holder, int position) {
 
         final UpperBodyModel upperBodyModel = upperBodyDetails.get(position);
-        Log.e("odara in adpter", String.valueOf(upperBodyModel.getuppid()));
         holder.workoutDayUpperBody.setText(upperBodyModel.getupperworkoutDay());
         holder.procedureUpperBody.setText(upperBodyModel.getupperprocedure());
         holder.durationUpperBody.setText(upperBodyModel.getupperduration());
@@ -90,7 +89,7 @@ public class UpperBodyAdapter extends RecyclerView.Adapter<UpperBodyAdapter.Uppe
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             upperBodyDetails.remove(upperBodyModel);
                             notifyDataSetChanged();
-                            
+
                         }else {
                             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
                         }
