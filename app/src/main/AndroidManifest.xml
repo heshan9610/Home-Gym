@@ -14,22 +14,13 @@
         android:theme="@style/Theme.HomeGym"
         tools:targetApi="31">
         <activity
-            android:name=".DisplayLowerBodyWorkouts"
-            android:exported="false" />
-        <activity
-            android:name=".LowerBodyHome"
-            android:exported="false" />
-        <activity
-            android:name=".UpdateLowerBodyWorkout"
-            android:exported="false" />
-        <activity
-            android:name=".AddLowerBodyWorkout"
-            android:exported="false" />
-        <activity
-            android:name=".HomePage"
+
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

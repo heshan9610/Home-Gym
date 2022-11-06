@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.home_gym.Models.LowerBodyModel;
+
 
 import java.util.ArrayList;
 
@@ -16,14 +16,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static int VERSION = 1;
     private static String DATABASE_NAME = "HomeGym.db";
-
-    //Lower body Table (Heshan Siriwardana)
-    private static final String LOWERBODY_TABLE_NAME = "HomeGym_LowerBody";
-    private static final String LOWERBODY_ID = "LowerBody_Id";
-    private static final String LOWERBODY_DAY = "LowerBody_Day";
-    private static final String LOWERBODY_PROCEDURE = "LowerBody_Procedure";
-    private static final String LOWERBODY_TIMINGDURATION = "LowerBody_TimingDuration";
-    private static final String LOWERBODY_BENEFITS = "LowerBody_Benefits";
 
 
     public DBHandler(Context context) {
@@ -43,6 +35,14 @@ public class DBHandler extends SQLiteOpenHelper {
                 ");";
 
         //Suran's Function Table Create Query
+        String TABLE_CREATE_DIET = "CREATE TABLE " + DIET_TABLE_NAME + " " +
+                " ("
+                + DIET_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DIET_NAME + " TEXT, "
+                + DIET_DESCRIPTION + " TEXT, "
+                + DIET_DATE + " TEXT, "
+                + DIET_TIME + " TEXT" +
+                ");";
 
         //Odara's Function Table Create Query
 
@@ -54,6 +54,7 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TABLE_CREATE_LOWERBODY);
 
         //Suran's Execute Query
+        sqLiteDatabase.execSQL(TABLE_CREATE_DIET);
 
         //Odara's Execute Query
 
@@ -65,104 +66,18 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
         //Heshan's Drop Table Query
-        String DROP_LOWERBODY_QUERY = " DROP TABLE IF EXISTS " + LOWERBODY_TABLE_NAME;
+
 
         //Suran's Drop Table Query
+        String DROP_DIET_QUERY = " DROP TABLE IF EXISTS " + DIET_TABLE_NAME;
+
         //Odara's Drop Table Query
+
         //Ravishani's Drop Table Query
 
-        //drop the lowerbody table
-        sqLiteDatabase.execSQL(DROP_LOWERBODY_QUERY);
-
-        //create table again
-        onCreate(sqLiteDatabase);
-    }
-
-    //Suran's Function CRUD
-    //HEshan's Function CRUD
-
-    //LowerBody Function-------------------------------------------------------------------------------------------
-
-    //Insert Lower Body workout to the table
-    public long InsertLowerBodyWorkout(LowerBodyModel lowerBodyModel) {
-
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(LOWERBODY_DAY,lowerBodyModel.getWorkoutDay());
-        contentValues.put(LOWERBODY_PROCEDURE,lowerBodyModel.getProcedure());
-        contentValues.put(LOWERBODY_TIMINGDURATION,lowerBodyModel.getDuration());
-        contentValues.put(LOWERBODY_BENEFITS,lowerBodyModel.getBenefits());
-
-        long result = sqLiteDatabase.insert(LOWERBODY_TABLE_NAME, null, contentValues);
-
-        return result;
-    }
-
-
-    //Display Lower Body workouts
-    public ArrayList<LowerBodyModel> getAllLowerBodyDetails(){
-
-        ArrayList<LowerBodyModel> lowerBodyDetails = new ArrayList<>();
-
-        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-
-        String GET_DATA_QUERY = " SELECT * FROM " + LOWERBODY_TABLE_NAME;
-
-        Cursor cursor = null;
-
-        cursor = sqLiteDatabase.rawQuery(GET_DATA_QUERY, null);
-
-        if( cursor.moveToFirst()){
-
-            do{
-                //row data
-                int id = cursor.getInt(0);
-                String workoutDay = cursor.getString(1);
-                String workoutProcedure = cursor.getString(2);
-                String workoutDuration= cursor.getString(3);
-                String workoutBenefits= cursor.getString(4);
-
-                LowerBodyModel lowerBodyModel= new LowerBodyModel(id, workoutDay, workoutProcedure,workoutDuration, workoutBenefits);
-                lowerBodyDetails.add(lowerBodyModel);
-
-            }while(cursor.moveToNext());
-
-        }
-
-        return lowerBodyDetails;
-    }
-
-    //Delete Lower Body workout
-    public int deleteLowerBodyWorkout(int id) {
-
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        int result = sqLiteDatabase.delete(LOWERBODY_TABLE_NAME, "LOWERBODY_ID=?",new String[]{String.valueOf(id)});
-
-        return result;
-    }
-
-    //Update Lower Body workout
-    public int UpdateLowerBodyWorkout(LowerBodyModel lowerBodyModel) {
-
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(LOWERBODY_DAY, lowerBodyModel.getWorkoutDay());
-        contentValues.put(LOWERBODY_PROCEDURE, lowerBodyModel.getProcedure());
-        contentValues.put(LOWERBODY_TIMINGDURATION, lowerBodyModel.getDuration());
-        contentValues.put(LOWERBODY_BENEFITS, lowerBodyModel.getBenefits());
-
-
-
-        int result = sqLiteDatabase.update(LOWERBODY_TABLE_NAME, contentValues, "LOWERBODY_ID=?" ,new String[]{String.valueOf(lowerBodyModel.getId())});
-
-        return result;
-    }
 
     //Odara's Function CRUD
+
     //Ravishani's Function CRUD
 
 
