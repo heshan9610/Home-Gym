@@ -14,19 +14,7 @@
         android:theme="@style/Theme.HomeGym"
         tools:targetApi="31">
         <activity
-            android:name=".StopWatch"
-            android:exported="false" />
-        <activity
-            android:name=".UpdateDiet"
-            android:exported="false" />
-        <activity
-            android:name=".DietHome"
-            android:exported="false" />
-        <activity
-            android:name=".DietList"
-            android:exported="false" />
-        <activity
-            android:name=".AddDiet"
+
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
