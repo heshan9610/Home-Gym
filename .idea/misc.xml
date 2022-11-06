@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Suran Sandeepa/Desktop/Coding/Android Studio - Second/UEE-Project/Home-Gym/app/src/main/res/layout/activity_home_page.xml" value="0.371875" />
+
         <entry key="..\:/Users/Suran Sandeepa/Desktop/Coding/Android Studio - Second/UEE-Project/Home-Gym/app/src/main/res/layout/activity_main.xml" value="0.371875" />
         <entry key="..\:/Users/Suran Sandeepa/Desktop/Coding/Android Studio - Second/UEE-Project/Home-Gym/app/src/main/res/layout/activity_splash_screen.xml" value="0.209375" />
+        <entry key="..\:/Users/Suran Sandeepa/Desktop/Coding/Android Studio - Second/UEE-Project/Home-Gym/app/src/main/res/layout/activity_stop_watch.xml" value="0.209375" />
+        <entry key="..\:/Users/Suran Sandeepa/Desktop/Coding/Android Studio - Second/UEE-Project/Home-Gym/app/src/main/res/layout/activity_update_diet.xml" value="0.25" />
+        <entry key="..\:/Users/Suran Sandeepa/Desktop/Coding/Android Studio - Second/UEE-Project/Home-Gym/app/src/main/res/layout/raw_diet_plan.xml" value="0.353125" />
+        <entry key="..\:/Users/Suran Sandeepa/Desktop/Coding/Android Studio - Second/UEE-Project/Home-Gym/app/src/main/res/layout/testform.xml" value="0.25" />
       </map>
     </option>
   </component>

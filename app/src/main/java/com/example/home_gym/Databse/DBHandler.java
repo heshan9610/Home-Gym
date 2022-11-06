@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.home_gym.Models.ContactModel;
 
 import java.util.ArrayList;
 
@@ -17,14 +16,6 @@ public class DBHandler extends SQLiteOpenHelper {
     private static int VERSION = 1;
     private static String DATABASE_NAME = "HomeGym.db";
 
-    //contact table coulumn values
-
-    private static final String CONTACT_TABLE_NAME = "contact";
-    private static final String TRAINER_ID = "trainer_id";
-    private static final String TRAINER_NAME = "trainer_name";
-    private static final String TRAINER_QUALIFICATION = "trainer_qualification";
-    private static final String TRAINER_CONTACT_NUM = "trainer_contact_num";
-    private static final String TRAINER_TIME = "trainer_time";
 
 
     public DBHandler(Context context) {
@@ -34,8 +25,24 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //Heshan's Function Table Create Query
+        String TABLE_CREATE_LOWERBODY = "CREATE TABLE " + LOWERBODY_TABLE_NAME + " " +
+                " ("
+                + LOWERBODY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + LOWERBODY_DAY + " TEXT, "
+                + LOWERBODY_PROCEDURE + " TEXT, "
+                + LOWERBODY_TIMINGDURATION + " TEXT, "
+                + LOWERBODY_BENEFITS + " TEXT" +
+                ");";
 
         //Suran's Function Table Create Query
+        String TABLE_CREATE_DIET = "CREATE TABLE " + DIET_TABLE_NAME + " " +
+                " ("
+                + DIET_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + DIET_NAME + " TEXT, "
+                + DIET_DESCRIPTION + " TEXT, "
+                + DIET_DATE + " TEXT, "
+                + DIET_TIME + " TEXT" +
+                ");";
 
         //Odara's Function Table Create Query
 
@@ -54,8 +61,10 @@ public class DBHandler extends SQLiteOpenHelper {
         //--------------------------------------------
 
         //Heshan's Execute Query
+        sqLiteDatabase.execSQL(TABLE_CREATE_LOWERBODY);
 
         //Suran's Execute Query
+        sqLiteDatabase.execSQL(TABLE_CREATE_DIET);
 
         //Odara's Execute Query
 
@@ -67,25 +76,17 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
         //Heshan's Drop Table Query
+
+
         //Suran's Drop Table Query
+        String DROP_DIET_QUERY = " DROP TABLE IF EXISTS " + DIET_TABLE_NAME;
+
         //Odara's Drop Table Query
+
         //Ravishani's Drop Table Query
 
-        String DROP_CONTACT_QUERY = " DROP TABLE IF EXISTS " + CONTACT_TABLE_NAME;
-
-        //drop the contact table
-
-        sqLiteDatabase.execSQL(DROP_CONTACT_QUERY);
-
-        //create table again
-
-        onCreate(sqLiteDatabase);
-    }
-
-
-    //Suran's Function CRUD
-    //HEshan's Function CRUD
     //Odara's Function CRUD
+
     //Ravishani's Function CRUD
 
     //Contact insert Function
