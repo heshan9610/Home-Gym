@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Home-Gym</string>
+    <!--Diet management-->
+    <string name="DietHomeButton">Diet</string>
+    <string name="AddDietPlan">Add Diet</string>
+    <string name="ViewDiet">Diet Plans</string>
+    <string name="DietPlan">Diet Plan</string>
+    <string name="DietTime">TIME</string>
+    <string name="DietDate">DATE</string>
+    <string name="Diet">DIET</string>
+    <string name="DietSave">Save</string>
+    <string name="DietShow">Diet Plans</string>
+    <string name="UpdateDiet">Update</string>
+    <string name="total_diet_plans">Total Diet Plans</string>
+    <string name="rawTime">Time :</string>
+    <string name="meal_for_the_day">Meal for the day</string>
+    <string name="rawDate">Date :</string>
+    <string name="rawMeals">Meals :</string>
+    <string name="btnupdate">update</string>
+    <string name="btndelete">Delete</string>
+    <string name="meal_of_the_day">Meal Of The Day</string>
+    <string name="meal">Meal</string>
+    <!--Diet Spinner-->
+    <string-array name="dietNames">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Snacks</item>
+    </string-array>
 </resources>
