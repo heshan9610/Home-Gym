@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".HomePage"
+        android:layout_marginTop="20dp"
         android:gravity="center">
 
         <LinearLayout
@@ -61,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ll1"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -154,13 +155,12 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/dietHome_img"
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center" />
 
                         <TextView
-                            android:id="@+id/dietHome"
+                            android:id="@+id/txtTimetableHome"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Diet-Plan"
@@ -230,11 +230,11 @@
                             android:layout_gravity="center"/>
 
                         <TextView
-                            android:id="@+id/btnStopWatch"
+                            android:id="@+id/txtStopWatch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Stopwatch"
-
+                            android:onClick="ClockHome"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
